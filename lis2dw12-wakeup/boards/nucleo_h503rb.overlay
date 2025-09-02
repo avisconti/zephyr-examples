@@ -1,0 +1,31 @@
+/*
+ * Copyright (c) 2025 STMicroelectronics
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+
+/*
+ * Nucleo F401RE board + shield iks4a1
+ *
+ * This devicetree overlay file will be automatically picked by the Zephyr
+ * build system when building the sample for the nucleo_f401re board.
+ */
+
+/ {
+	aliases {
+	};
+};
+
+&arduino_i2c {
+
+	lis2dw12_19_x_nucleo_iks01a3: lis2dw12@19 {
+		compatible = "st,lis2dw12";
+		reg = <0x19>;
+		irq-gpios =  <&arduino_header 3 GPIO_ACTIVE_HIGH>; /* A3 */
+
+		hp-filter-path;
+		wakeup-duration = <0>;
+	};
+
+};
